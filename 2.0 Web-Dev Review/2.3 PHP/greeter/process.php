@@ -1,23 +1,25 @@
 <?php
 
-#var_dump($_GET);#superglobal #global variable(used in forms)-considered insecure thus not for(Update/create)
+var_dump($_GET);#superglobal #global variable(used in forms)-considered insecure thus not for(Update/create)
+echo "<br>";
 
-#die();
-$all_name = $_GET['full-name'];
+#die(); //stops execution here...
+
+
+$all_name = $_REQUEST['full-name'];
 $age = $_GET['age'];
 $gender = $_GET['gender'];
 
 //Getting the first name if it exists..
 $space_position = strpos($all_name,' ');
 
-if(strpos($all_name,' ') == false){
+if($space_position == false){
    $first_name = $all_name;
 }else {
   $first_name = substr($all_name,0,$space_position);
 }
 
 #echo $age;
-
 $greeting = $first_name;
 
 if($age <= 12){
